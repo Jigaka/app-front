@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:frontend/src/pages/data/helpers/http_method.dart';
+import 'http_method.dart';
 import 'package:http/http.dart';
 
 dynamic _parseBody(dynamic body) {

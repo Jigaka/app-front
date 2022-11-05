@@ -1,6 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:frontend/src/data/data_source/remote/authentication_api.dart';
+import 'package:frontend/src/data/helpers/authentication_repository_implementation.dart';
+import 'package:frontend/src/data/helpers/http/http.dart';
+import 'package:frontend/src/domain/repositories/authentication_repository.dart';
+import 'package:frontend/src/domain/responses/login_response.dart';
+import 'package:frontend/src/pages/principal.dart';
+import 'package:frontend/src/utils/dialog.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   static String id = 'login_page';
@@ -11,6 +19,21 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  AuthenticationRepository? auth;
+  @override
+  void initState() {
+    super.initState();
+    final http = Http();
+
+    auth = AuthenticationRepositoryImpl(
+      AuthenticacionAPI(http),
+    );
+
+    auth!.login("usuario100").then((value) => print("sdfa$value"));
+  }
+
+  String username = '';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -56,7 +79,9 @@ class _LoginPageState extends State<LoginPage> {
               icon: Icon(Icons.verified_user),
               hintText: 'usuario login',
               labelText: 'Username'),
-          onChanged: (value) {},
+          onChanged: (text) {
+            username = text;
+          },
         ),
       );
     });
@@ -78,7 +103,31 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
           ),
-          onPressed: () {});
+          onPressed: () {
+            _login(context);
+          });
     });
+  }
+
+  Future<void> _login(BuildContext context) async {
+    ProgressDialog.show(context);
+    LoginResponse ok = await auth!.login(username);
+    ProgressDialog.dissmiss(context);
+    if (LoginResponse.ok == ok) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('login', 'yes');
+
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        PrincipalPage.id,
+        (_) => false,
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("usuario invalido"),
+        ),
+      );
+    }
   }
 }
