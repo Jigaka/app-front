@@ -28,8 +28,6 @@ class _LoginPageState extends State<LoginPage> {
     auth = AuthenticationRepositoryImpl(
       AuthenticacionAPI(http),
     );
-
-    auth!.login("usuario100").then((value) => print("sdfa$value"));
   }
 
   String username = '';
