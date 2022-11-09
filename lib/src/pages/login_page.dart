@@ -6,6 +6,7 @@ import 'package:frontend/src/data/helpers/authentication_repository_implementati
 import 'package:frontend/src/data/helpers/http/http.dart';
 import 'package:frontend/src/domain/repositories/authentication_repository.dart';
 import 'package:frontend/src/domain/responses/login_response.dart';
+import 'package:frontend/src/pages/pacientes_page.dart';
 import 'package:frontend/src/pages/principal.dart';
 import 'package:frontend/src/utils/dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -117,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Navigator.pushNamedAndRemoveUntil(
         context,
-        PrincipalPage.id,
+        PacientesPage.id,
         (_) => false,
       );
     } else {

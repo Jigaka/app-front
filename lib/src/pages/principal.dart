@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:frontend/src/pages/pacientes_page.dart';
 
 class PrincipalPage extends StatelessWidget {
   static String id = 'principal_page';
@@ -18,19 +19,17 @@ class PrincipalPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _botonesGrandes(
-            context,
-            "Administracion de pacientes",
-            botonPacientes,
-          ),
+              context,
+              "Administracion de pacientes",
+              () => Navigator.pushNamed(
+                    context,
+                    PacientesPage.id,
+                  )),
           _botonesGrandes(context, "Reserva de turnos", () {}),
           _botonesGrandes(context, "Ficha clinica", () {}),
         ],
       )),
     );
-  }
-
-  void botonPacientes() {
-    print("hola");
   }
 
   Widget _botonesGrandes(BuildContext context, String title, Function funcion) {

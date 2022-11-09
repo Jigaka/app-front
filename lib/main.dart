@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/src/pages/login_page.dart';
+import 'package:frontend/src/pages/pacientes_page.dart';
 import 'package:frontend/src/pages/principal.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
         LoginPage.id: (context) => LoginPage(),
         PrincipalPage.id: (context) => PrincipalPage(),
+        PacientesPage.id: (context) => PacientesPage(),
       },
     );
   }

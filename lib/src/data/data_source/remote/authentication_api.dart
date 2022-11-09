@@ -11,7 +11,7 @@ class AuthenticacionAPI {
 
   Future<LoginResponse> login(String username) async {
     final result = await _http.request(
-      "persona",
+      "/persona",
       method: HttpMethod.get,
       queryParameters: {'ejemplo': '{"soloUsuariosDelSistema":true}'},
     );

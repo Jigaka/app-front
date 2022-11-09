@@ -6,7 +6,7 @@ import 'send_request.dart';
 typedef Parser<T> = T Function(dynamic data);
 
 class Http {
-  final String baseUrl = 'https://equipoyosh.com/stock-nutrinatalia/';
+  final String baseUrl = 'https://equipoyosh.com/stock-nutrinatalia';
   Future<HttpResult<T>> request<T>(
     String path, {
     HttpMethod method = HttpMethod.get,
