@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:frontend/src/pages/pacientes_page.dart';
 
 class PrincipalPage extends StatelessWidget {
@@ -12,23 +9,23 @@ class PrincipalPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Clinica"),
+        title: const Text("Clinica"),
       ),
-      body: Container(
-          child: Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _botonesGrandes(
+            context,
+            "Administracion de pacientes",
+            () => Navigator.pushNamed(
               context,
-              "Administracion de pacientes",
-              () => Navigator.pushNamed(
-                    context,
-                    PacientesPage.id,
-                  )),
+              PacientesPage.id,
+            ),
+          ),
           _botonesGrandes(context, "Reserva de turnos", () {}),
           _botonesGrandes(context, "Ficha clinica", () {}),
         ],
-      )),
+      ),
     );
   }
 
@@ -46,10 +43,10 @@ class PrincipalPage extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.blue[600],
             borderRadius: BorderRadius.circular(10.0),
-            boxShadow: [
-              new BoxShadow(
+            boxShadow: const [
+              BoxShadow(
                 color: Colors.black,
-                offset: new Offset(0.0, 8.0),
+                offset: Offset(0.0, 8.0),
                 blurRadius: 8.0,
               ),
             ],

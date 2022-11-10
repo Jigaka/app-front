@@ -12,7 +12,7 @@ abstract class ProgressDialog {
               width: double.infinity,
               height: double.infinity,
               color: Colors.white.withOpacity(0.9),
-              child: Center(
+              child: const Center(
                 child: CircularProgressIndicator(),
               ),
             ),

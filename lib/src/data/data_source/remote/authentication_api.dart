@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:frontend/src/data/helpers/http/http.dart';
 import 'package:frontend/src/data/helpers/http/http_method.dart';
 import 'package:frontend/src/domain/responses/login_response.dart';

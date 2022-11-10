@@ -56,6 +56,7 @@ class Http {
         error: null,
       );
     } catch (e, s) {
+      // ignore: avoid_print
       print(e);
 
       if (e is HttpError) {

@@ -1,6 +1,6 @@
 import 'package:frontend/src/data/helpers/http/http.dart';
 import 'package:frontend/src/data/helpers/http/http_method.dart';
-import 'package:frontend/src/domain/models/Paciente.dart';
+import 'package:frontend/src/domain/models/paciente.dart';
 
 class PacientesApi {
   final Http _http;

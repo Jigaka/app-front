@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
       initialRoute: initialRoute,
       routes: {
-        LoginPage.id: (context) => LoginPage(),
-        PrincipalPage.id: (context) => PrincipalPage(),
-        PacientesPage.id: (context) => PacientesPage(),
+        LoginPage.id: (context) => const LoginPage(),
+        PrincipalPage.id: (context) => const PrincipalPage(),
+        PacientesPage.id: (context) => const PacientesPage(),
       },
     );
   }
