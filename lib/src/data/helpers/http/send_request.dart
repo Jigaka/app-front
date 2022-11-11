@@ -42,7 +42,7 @@ Future<Response> sendRequest({
           .post(
             url,
             headers: finalHeaders,
-            body: body,
+            body: _parseBody(body),
           )
           .timeout(timeOut);
     case HttpMethod.put:

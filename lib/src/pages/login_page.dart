@@ -34,34 +34,35 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Flexible(
-              child: Image.asset(
-                'assets/img/apepu256.png',
-                height: 400,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Flexible(
+                child: Image.asset(
+                  'assets/img/apepu256.png',
+                  height: 400,
+                ),
               ),
-            ),
-            const Text(
-              "Apepu",
-              style: TextStyle(
-                  color: Colors.blueGrey,
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 15.0,
-            ),
-            _userTextField(),
-            const SizedBox(
-              height: 20.0,
-            ),
-            _bottonLogin()
-          ],
+              const Text(
+                "Apepu",
+                style: TextStyle(
+                    color: Colors.blueGrey,
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              _userTextField(),
+              const SizedBox(
+                height: 20.0,
+              ),
+              _bottonLogin(),
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 
