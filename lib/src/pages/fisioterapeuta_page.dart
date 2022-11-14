@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/src/data/data_source/remote/pacientes_api.dart';
 import 'package:frontend/src/data/helpers/http/http.dart';
-import 'package:frontend/src/data/helpers/pacientes_repository_impl.dart';
+import 'package:frontend/src/data/repositories_implementation/pacientes_repository_impl.dart';
 import 'package:frontend/src/domain/models/Paciente.dart';
 import 'package:frontend/src/domain/repositories/pacientes_repository.dart';
 

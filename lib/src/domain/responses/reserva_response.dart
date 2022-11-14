@@ -1,0 +1,4 @@
+enum ReservaResponse {
+  ok,
+  denied,
+}

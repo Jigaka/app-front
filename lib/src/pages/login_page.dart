@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/src/data/data_source/remote/authentication_api.dart';
-import 'package:frontend/src/data/helpers/authentication_repository_implementation.dart';
+import 'package:frontend/src/data/repositories_implementation/authentication_repository_implementation.dart';
 import 'package:frontend/src/data/helpers/http/http.dart';
 import 'package:frontend/src/domain/repositories/authentication_repository.dart';
 import 'package:frontend/src/domain/responses/login_response.dart';
