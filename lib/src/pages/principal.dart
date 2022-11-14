@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/src/pages/pacientes_page.dart';
+import 'package:frontend/src/pages/reservas_page.dart';
 
 class PrincipalPage extends StatelessWidget {
   static String id = 'principal_page';
@@ -22,7 +23,14 @@ class PrincipalPage extends StatelessWidget {
               PacientesPage.id,
             ),
           ),
-          _botonesGrandes(context, "Reserva de turnos", () {}),
+          _botonesGrandes(
+            context,
+            "Reserva de turnos",
+            () => Navigator.pushNamed(
+              context,
+              RerservasPage.id,
+            ),
+          ),
           _botonesGrandes(context, "Ficha clinica", () {}),
         ],
       ),

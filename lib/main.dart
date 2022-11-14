@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       title: 'App frontend',
       theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
       // initialRoute: initialRoute,
-      initialRoute: RerservasPage.id,
+      initialRoute: initialRoute,
       routes: {
         LoginPage.id: (context) => const LoginPage(),
         PrincipalPage.id: (context) => const PrincipalPage(),

@@ -11,7 +11,7 @@ class ItemsPage extends StatefulWidget {
     Reserva reserva,
     int pos,
   ) cancelReserva;
-  final List<String> Function(
+  final Future<List<String>> Function(
     BuildContext context,
     int idReserva,
     Reserva reserva,
@@ -31,6 +31,7 @@ class ItemsPage extends StatefulWidget {
 }
 
 class _ItemsPageState extends State<ItemsPage> {
+  bool cerroCampeon = true;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -80,8 +81,8 @@ class _ItemsPageState extends State<ItemsPage> {
                               label: 'Cancelar',
                             ),
                             SlidableAction(
-                              onPressed: (value) {
-                                List<String> lista = widget.editReserva(
+                              onPressed: (value) async {
+                                List<String> lista = await widget.editReserva(
                                   context,
                                   widget.reservas[index].idReserva,
                                   widget.reservas[index],
@@ -90,6 +91,7 @@ class _ItemsPageState extends State<ItemsPage> {
                                   widget.reservas[index].flagAsistio ?? '',
                                 );
                                 setState(() {
+                                  cerroCampeon = !cerroCampeon;
                                   widget.reservas[index].observacion = lista[0];
                                   widget.reservas[index].flagAsistio = lista[1];
                                 });

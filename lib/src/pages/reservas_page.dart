@@ -100,10 +100,11 @@ class _RerservasPageState extends State<RerservasPage> {
     });
   }
 
-  List<String> onEditReserva(context, idReserva, reserva, pos, obs, asistio) {
+  Future<List<String>> onEditReserva(
+      context, idReserva, reserva, pos, obs, asistio) async {
     bool flagAsistio = asistio == 'S';
-    bool enviar = false;
-    showDialog<String>(
+    bool checked = false;
+    await showDialog<String>(
       barrierDismissible: false,
       context: context,
       builder: (BuildContext context) => StatefulBuilder(
@@ -122,11 +123,13 @@ class _RerservasPageState extends State<RerservasPage> {
                 ),
                 const Text('Asistio?'),
                 Checkbox(
-                  value: flagAsistio,
+                  value: checked,
                   onChanged: (value) {
                     if (!flagAsistio) {
                       setState(() {
-                        asistio = 'S';
+                        // asistio = 'S';
+                        checked = !checked;
+                        flagAsistio = true;
                       });
                     }
                   },
@@ -135,12 +138,15 @@ class _RerservasPageState extends State<RerservasPage> {
             ),
             actions: <Widget>[
               TextButton(
-                onPressed: () => Navigator.pop(context, 'Cancel'),
+                onPressed: () {
+                  myTextController.text = obs;
+                  flagAsistio = asistio;
+                  Navigator.pop(context, 'Cancel');
+                },
                 child: const Text('Cancel'),
               ),
               TextButton(
                 onPressed: () {
-                  enviar = true;
                   Navigator.pop(context, 'OK');
                 },
                 child: const Text('OK'),
@@ -150,9 +156,7 @@ class _RerservasPageState extends State<RerservasPage> {
         },
       ),
     );
-    return enviar
-        ? [myTextController.text, flagAsistio ? 'S' : 'N']
-        : ["m", 'm'];
+    return [myTextController.text, flagAsistio ? 'S' : 'N'];
   }
 
   void onFilterChange(int idFisio, int idCliente, String desde, String hasta) {
