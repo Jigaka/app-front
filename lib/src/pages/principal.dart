@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/src/pages/ficha_clinica_page.dart';
 import 'package:frontend/src/pages/pacientes_page.dart';
 import 'package:frontend/src/pages/reservas_page.dart';
 
@@ -31,7 +32,14 @@ class PrincipalPage extends StatelessWidget {
               RerservasPage.id,
             ),
           ),
-          _botonesGrandes(context, "Ficha clinica", () {}),
+          _botonesGrandes(
+            context,
+            "Ficha clinica",
+            () => Navigator.pushNamed(
+              context,
+              FichaPage.id,
+            ),
+          ),
         ],
       ),
     );

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/src/pages/ficha_clinica_page.dart';
 import 'package:frontend/src/pages/fisioterapeuta_page.dart';
 import 'package:frontend/src/pages/login_page.dart';
 import 'package:frontend/src/pages/pacientes_page.dart';
 import 'package:frontend/src/pages/principal.dart';
+import 'package:frontend/src/pages/registrar_ficha_page.dart';
 import 'package:frontend/src/pages/registrar_paciente_page.dart';
 import 'package:frontend/src/pages/reservas_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,6 +38,8 @@ class MyApp extends StatelessWidget {
         FisioterapeutaPage.id: (context) => const FisioterapeutaPage(),
         RegistrarPacientePage.id: (context) => const RegistrarPacientePage(),
         RerservasPage.id: (context) => const RerservasPage(),
+        FichaPage.id: (context) => const FichaPage(),
+        RegistrarFichaPage.id: (context) => const RegistrarFichaPage(),
       },
     );
   }
